@@ -40,24 +40,24 @@ public class loginCaihong {
 	public void Login(){
 		LoginPage loginpage = new LoginPage(driver); //new一个登录页面
 		loginpage.openUrl("http://192.168.8.7:8080/rainbow/pages/login.html");//输入url
-		loginpage.setUsername("wujiajun");//�����û���
-		loginpage.setPassword("111111");//��������
-		loginpage.prssLogbtn();//�����¼
-		wait.waitFor(5000);//�ȴ�5��
-		Assert.assertEquals(loginpage.yanzheng().isDisplayed(), true);//��֤�Ƿ��¼�ɹ�������ĳԪ���򷵻�true
+		loginpage.setUsername("wujiajun");//输入用户名
+		loginpage.setPassword("111111");//输入密码
+		loginpage.prssLogbtn();//点击登录
+		wait.waitFor(5000);//等待5秒
+		Assert.assertEquals(loginpage.yanzheng().isDisplayed(), true);//断点判断某元素是否出现，出现则返回true
 	}
 	
 	@Test(dependsOnMethods = {"Login"})
 	public void pdcManage(){
 		ProductPage productpage = new ProductPage(driver);
-		productpage.pressPmanage();//�����������ť
-		wait.waitFor(3000);//�ȴ�3��
-		productpage.pressPplan();//��������ƻ���ť
+		productpage.pressPmanage();
 		wait.waitFor(3000);
-		productpage.presswuhan();//����人�ֹ�˾
-		productpage.pressnew();//����½�
-		wait.waitFor(5000);//�ȴ�5��
-		Assert.assertEquals(productpage.yanzheng().isDisplayed(), true);//��֤�Ƿ񵯳�ҳ��ɹ����ڵ���ҳ��ȡһ��Ԫ�أ��ж����Ƿ����
+		productpage.pressPplan();
+		wait.waitFor(3000);
+		productpage.presswuhan();
+		productpage.pressnew();
+		wait.waitFor(5000);
+		Assert.assertEquals(productpage.yanzheng().isDisplayed(), true);
 
 	
 	}
@@ -67,21 +67,21 @@ public class loginCaihong {
 		String Pnumber = null;
 		WebElement dd1 = driver.findElement(By.xpath("html/body/div[1]/div[3]/section[2]/div/div[2]/div/div[2]/div/div[3]/div[2]/div"));
 		String s1 = dd1.getText();
-		int sub1 = Integer.valueOf(s1.substring(17, s1.length()-1).trim());//��ȡ�ַ����е�һ��������Ϊint����
+		int sub1 = Integer.valueOf(s1.substring(17, s1.length()-1).trim());//截取当前生产计划的总数
 		wait.waitFor(3000);
 
-		NewPdcPlanPage nppp = new NewPdcPlanPage(driver);//newһ���½������ƻ��ĵ�ҳ��
+		NewPdcPlanPage nppp = new NewPdcPlanPage(driver);
 		
-		//��ȡ��ǰʱ�䣬������������Ϊ�����ƻ����κţ���������ÿ�����κŶ���һ��
+		//将当前时间，“年月日时分秒”作为生产计划名称，这样保证每次都不一样
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		String layout = "yyyyMMddHHmmss";
 		sdf.applyPattern(layout);
 		Calendar c1 = Calendar.getInstance();
 		Pnumber = sdf.format(c1.getTime());
 		
-		nppp.setPlanNumber("WH"+Pnumber);//�������κ����롰WH+ʱ�䣨�������룩��
+		nppp.setPlanNumber("WH"+Pnumber);//输入生产计划名称
 		
-		//����ѡ��
+		//下拉操作
 		WebElement ss = driver.findElement(By.xpath(".//select[@id='DTE_Field_workshopCode']"));
 		Select sel = new Select(ss);
 		sel.selectByValue("00002");
@@ -91,10 +91,10 @@ public class loginCaihong {
 		wait.waitFor(5000);
 		WebElement dd2 = driver.findElement(By.xpath("html/body/div[1]/div[3]/section[2]/div/div[2]/div/div[2]/div/div[3]/div[2]/div"));
 		String s2 = dd2.getText();
-		int sub2 = Integer.valueOf(s2.substring(17, s2.length()-1).trim());//�ٴν�ȡ������ַ����������е�������Ϊint����
-		int a = sub2-sub1;//���ε��������������Ҫ����1
+		int sub2 = Integer.valueOf(s2.substring(17, s2.length()-1).trim());//再次获取总数
+		int a = sub2-sub1;
 		System.out.println("*********"+a);
-		Assert.assertEquals(a==1, true);//�жϵ���1˵���½��ɹ�
+		Assert.assertEquals(a==1, true);//两次总数相减等于1，说明新建成功
 	}
 	
 	@AfterClass

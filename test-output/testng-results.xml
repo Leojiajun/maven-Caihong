@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Testcaihong" duration-ms="17323" started-at="2017-03-29T08:20:31Z" finished-at="2017-03-29T08:20:48Z">
+  <suite name="Testcaihong" duration-ms="17211" started-at="2017-03-30T02:54:48Z" finished-at="2017-03-30T02:55:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17323" started-at="2017-03-29T08:20:31Z" finished-at="2017-03-29T08:20:48Z">
+    <test name="Default test" duration-ms="17211" started-at="2017-03-30T02:54:48Z" finished-at="2017-03-30T02:55:05Z">
       <class name="testcase.wrongPorN">
-        <test-method status="PASS" signature="startfirefox(java.lang.String, java.lang.String)[pri:0, instance:testcase.wrongPorN@4b9e13df]" name="startfirefox" is-config="true" duration-ms="5619" started-at="2017-03-29T16:20:31Z" finished-at="2017-03-29T16:20:36Z">
+        <test-method status="PASS" signature="startfirefox(java.lang.String, java.lang.String)[pri:0, instance:testcase.wrongPorN@475530b9]" name="startfirefox" is-config="true" duration-ms="5938" started-at="2017-03-30T10:54:48Z" finished-at="2017-03-30T10:54:54Z">
           <params>
             <param index="0">
               <value>
@@ -23,19 +23,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startfirefox -->
-        <test-method status="PASS" signature="logInwpwd()[pri:0, instance:testcase.wrongPorN@4b9e13df]" name="logInwpwd" duration-ms="4454" started-at="2017-03-29T16:20:36Z" finished-at="2017-03-29T16:20:41Z">
+        <test-method status="PASS" signature="logInwpwd()[pri:0, instance:testcase.wrongPorN@475530b9]" name="logInwpwd" duration-ms="4164" started-at="2017-03-30T10:54:54Z" finished-at="2017-03-30T10:54:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logInwpwd -->
-        <test-method status="PASS" signature="logInwusn()[pri:0, instance:testcase.wrongPorN@4b9e13df]" name="logInwusn" duration-ms="3215" started-at="2017-03-29T16:20:41Z" finished-at="2017-03-29T16:20:44Z">
+        <test-method status="PASS" signature="logInwusn()[pri:0, instance:testcase.wrongPorN@475530b9]" name="logInwusn" duration-ms="3229" started-at="2017-03-30T10:54:58Z" finished-at="2017-03-30T10:55:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logInwusn -->
-        <test-method status="PASS" signature="logInNoUsn()[pri:0, instance:testcase.wrongPorN@4b9e13df]" name="logInNoUsn" duration-ms="3171" started-at="2017-03-29T16:20:44Z" finished-at="2017-03-29T16:20:47Z">
+        <test-method status="PASS" signature="logInNoUsn()[pri:0, instance:testcase.wrongPorN@475530b9]" name="logInNoUsn" duration-ms="3201" started-at="2017-03-30T10:55:01Z" finished-at="2017-03-30T10:55:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logInNoUsn -->
-        <test-method status="PASS" signature="release()[pri:0, instance:testcase.wrongPorN@4b9e13df]" name="release" is-config="true" duration-ms="843" started-at="2017-03-29T16:20:47Z" finished-at="2017-03-29T16:20:48Z">
+        <test-method status="PASS" signature="release()[pri:0, instance:testcase.wrongPorN@475530b9]" name="release" is-config="true" duration-ms="659" started-at="2017-03-30T10:55:04Z" finished-at="2017-03-30T10:55:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- release -->

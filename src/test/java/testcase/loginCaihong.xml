@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Testcaihong">
+  <test  name="Default test" preserve-order="true">
+    <classes>
+      <class name="testcase.loginCaihong">
+      <methods>
+      	<include name="Login"/>
+      	<include name="pdcManage"/>
+      	<include name="newPlan"/>
+      	</methods>
+      	</class>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
