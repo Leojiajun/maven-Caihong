@@ -20,6 +20,7 @@ import libs.BrowserType;
 import libs.Browsers;
 import libs.DBOp;
 import libs.Do;
+import libs.TestDataCsv;
 import libs.Wait;
 
 public class loginCaihong {
@@ -34,14 +35,17 @@ public class loginCaihong {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait =  new Wait(driver);
+
 	}
 	
 	@Test
 	public void Login(){
 		LoginPage loginpage = new LoginPage(driver); //new一个登录页面
+		TestDataCsv data = new TestDataCsv(System.getProperty("user.dir")+"\\src\\test\\java\\testData\\aaaa.csv");
 		loginpage.openUrl("http://192.168.8.7:8080/rainbow/pages/login.html");//输入url
-		loginpage.setUsername("wujiajun");//输入用户名
-		loginpage.setPassword("111111");//输入密码
+		wait.waitFor(2000);
+		loginpage.setUsername(data.getTestData("username", "1"));//输入用户名
+		loginpage.setPassword(data.getTestData("password", "1"));//输入密码
 		loginpage.prssLogbtn();//点击登录
 		wait.waitFor(5000);//等待5秒
 		Assert.assertEquals(loginpage.yanzheng().isDisplayed(), true);//断点判断某元素是否出现，出现则返回true
@@ -57,9 +61,8 @@ public class loginCaihong {
 		productpage.presswuhan();
 		productpage.pressnew();
 		wait.waitFor(5000);
-		Assert.assertEquals(productpage.yanzheng().isDisplayed(), true);
+		Assert.assertEquals(productpage.bPoint().isDisplayed(), true);//断点验证是否弹出创建框
 
-	
 	}
 	
 	@Test(dependsOnMethods = {"pdcManage"})
@@ -72,7 +75,7 @@ public class loginCaihong {
 
 		NewPdcPlanPage nppp = new NewPdcPlanPage(driver);
 		
-		//将当前时间，“年月日时分秒”作为生产计划名称，这样保证每次都不一样
+		//将当前时间，“年月日时分秒”作为生产批次号，这样保证每次都不一样
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		String layout = "yyyyMMddHHmmss";
 		sdf.applyPattern(layout);
@@ -95,6 +98,22 @@ public class loginCaihong {
 		int a = sub2-sub1;
 		System.out.println("*********"+a);
 		Assert.assertEquals(a==1, true);//两次总数相减等于1，说明新建成功
+	}
+	
+	//在生产批次中添加产品
+	@Test(dependsOnMethods={"newPlan"})
+	public void newPtoPlan(){
+		ProductPage productpage = new ProductPage(driver);
+		productpage.pressnewtoP();
+		wait.waitFor(3000);
+		driver.findElement(By.xpath("//span[contains(text(),'新建')]")).click();
+		wait.waitFor(3000);
+		WebElement ss2 = driver.findElement(By.xpath("//select[@id='DTE_Field_productCode']"));
+		Select se2 = new Select(ss2);
+		se2.selectByValue("123344");
+		driver.findElement(By.xpath("//input[@id='DTE_Field_planNumber']")).sendKeys("150");
+		driver.findElement(By.xpath("//button[@tabindex='0']")).click();
+		System.out.println("*********b");
 	}
 	
 	@AfterClass

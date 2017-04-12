@@ -4,20 +4,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+//登录页面
 public class LoginPage {
 	private WebDriver driver;
 	
-	@FindBy(xpath="//input[@id='un']")
+	@FindBy(xpath="//input[@id='un']")//用户名输入框
 	private WebElement username;
 	
-	@FindBy(xpath="html/body/form/fieldset[2]/input")
+	@FindBy(xpath="html/body/form/fieldset[2]/input")//密码输入框
 	private WebElement password;
 	
-	@FindBy(xpath="//input[@value='登录']")
+	@FindBy(xpath="//input[@value='登录']")//登录按钮
 	private WebElement logbtn;
 	
-	@FindBy(xpath="//span[@id='topUserName']")
+	@FindBy(xpath="//span[@id='topUserName']")//登录后的验证元素
 	private WebElement testid;
 	
 	public LoginPage(WebDriver driver){

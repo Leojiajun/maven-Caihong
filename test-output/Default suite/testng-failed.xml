@@ -3,15 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcase.loginCaihong">
+      <class name="testcase.wrongNorP">
         <methods>
-          <include name="Login"/>
-          <include name="release"/>
-          <include name="newPlan"/>
-          <include name="openFirefox"/>
-          <include name="pdcManage"/>
+          <include name="login"/>
+          <include name="startfirefox"/>
         </methods>
-      </class> <!-- testcase.loginCaihong -->
+      </class> <!-- testcase.wrongNorP -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Testcaihong]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcase.wrongPorN">
+      <class name="testcase.wrongNorP">
         <methods>
-          <include name="logInwusn"/>
-          <include name="logInNoUsn"/>
-          <include name="logInwpwd"/>
+          <include name="login"/>
           <include name="startfirefox"/>
-          <include name="release"/>
         </methods>
-      </class> <!-- testcase.wrongPorN -->
+      </class> <!-- testcase.wrongNorP -->
     </classes>
   </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Testcaihong] -->
+</suite> <!-- Failed suite [Default suite] -->

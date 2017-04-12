@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="diffBrowser">
+  <parameter name="platform" value="chrome"/>
+  <test  name="Default test" preserve-order="true">
+    <groups>
+        <define name="module1"/>
+        <define name="module2"/>
+   
+        <define name="useFF">
+   	        <include name="module1"/>
+   	        <include name="module2"/>
+        </define>
+
+        <define name="useIE">
+   	         <include name="module1"/>
+   	         <include name="module2"/>
+        </define>   
+   
+        <define name="usechrome">
+   	          <include name="module1"/>
+   	          <include name="module2"/>
+        </define>
+  
+        <run>
+   	          <include name="browsers"/>
+   	          <include name="useFF"/>
+        </run>
+   
+   </groups>
+   
+   
+    <classes>
+      <class name="testcase.diffBrowser"/>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

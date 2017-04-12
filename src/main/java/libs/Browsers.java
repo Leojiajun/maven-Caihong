@@ -43,7 +43,7 @@ public class Browsers {
 			case chrome:
 				System.setProperty("webdriver.chrome.driver", projectpath+"/Tools/chromedriver_x64.exe");
 				//caps = DesiredCapabilities.chrome();
-				//caps.setCapability("chrome.switches", Arrays.asList("--start--maximized--"));//×î´ó»¯browser
+				//caps.setCapability("chrome.switches", Arrays.asList("--start--maximized--"));//ï¿½ï¿½ï¿½browser
 				driver= new ChromeDriver();
 				driver.manage().window().maximize();
 				break;
@@ -51,8 +51,8 @@ public class Browsers {
 				System.setProperty("webdriver.ie.driver", projectpath+"/Tools/IEDriverServer.exe");
 				caps =DesiredCapabilities.internetExplorer();
 				caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, false);
-				caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);//±ÜÃâ°²È«ÐÔ¼¶±ðÎÊÌâ
-				caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");//Ã¿´ÎÆôÓÃIE£¬×Ô¶¯Çå³ýcookie£¬¼ÇÂ¼
+				caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);//ï¿½ï¿½ï¿½â°²È«ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");//Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IEï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½cookieï¿½ï¿½ï¿½ï¿½Â¼
 				caps.setCapability("ignoreZoomSetting", true);
 				driver = new InternetExplorerDriver(caps);
 				driver.manage().window().maximize();
