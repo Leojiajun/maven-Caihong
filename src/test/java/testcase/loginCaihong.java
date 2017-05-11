@@ -32,7 +32,7 @@ public class loginCaihong {
 	@BeforeClass
 	//启动firefox浏览器
 	public void openFirefox(){
-		Browsers browser = new Browsers(BrowserType.firefox);
+		Browsers browser = new Browsers(BrowserType.chrome);
 		driver = browser.driver;
 		wait =  new Wait(driver);
 
@@ -46,7 +46,7 @@ public class loginCaihong {
 		wait.waitFor(2000);
 		loginpage.setUsername(data.getTestData("username", "1"));//输入用户名
 		loginpage.setPassword(data.getTestData("password", "1"));//输入密码
-		loginpage.prssLogbtn();//点击登录
+		loginpage.pressLogbtn();//点击登录
 		wait.waitFor(5000);//等待5秒
 		Assert.assertEquals(loginpage.yanzheng().isDisplayed(), true);//断点判断某元素是否出现，出现则返回true
 	}

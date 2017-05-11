@@ -53,7 +53,7 @@ public class wrongNorP {
 		login.openUrl("http://192.168.8.7:8080/rainbow/pages/login.html");
 		login.setUsername(username);
 		login.setPassword(password);
-		login.prssLogbtn();
+		login.pressLogbtn();
 		Assert.assertTrue(driver.getPageSource().contains(Result));
 				
 				

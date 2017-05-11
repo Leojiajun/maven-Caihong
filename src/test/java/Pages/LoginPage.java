@@ -37,7 +37,7 @@ public class LoginPage {
 		password.sendKeys(mima);
 	}
 	
-	public void prssLogbtn(){
+	public void pressLogbtn(){
 		logbtn.click();
 	}
 	

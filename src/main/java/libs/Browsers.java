@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -41,18 +42,22 @@ public class Browsers {
 				driver.manage().window().maximize();
 				break;
 			case chrome:
-				System.setProperty("webdriver.chrome.driver", projectpath+"/Tools/chromedriver_x64.exe");
-				//caps = DesiredCapabilities.chrome();
-				//caps.setCapability("chrome.switches", Arrays.asList("--start--maximized--"));//���browser
-				driver= new ChromeDriver();
+				System.setProperty("webdriver.chrome.driver","D:\\BrowsersDrivers\\chromedriver.exe");
+				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+				capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--test-type");
+				capabilities.setCapability("chrome.binary","src/ucBrowserDrivers/chromedriver.exe");
+				capabilities.setCapability(ChromeOptions.CAPABILITY,options);
+				driver = new ChromeDriver(capabilities);
 				driver.manage().window().maximize();
 				break;
 			case ie:
 				System.setProperty("webdriver.ie.driver", projectpath+"/Tools/IEDriverServer.exe");
 				caps =DesiredCapabilities.internetExplorer();
 				caps.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, false);
-				caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);//���ⰲȫ�Լ�������
-				caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");//ÿ������IE���Զ����cookie����¼
+				caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);//避免安全性级别问题
+				caps.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");//每次启用IE，自动清除cookie，记录
 				caps.setCapability("ignoreZoomSetting", true);
 				driver = new InternetExplorerDriver(caps);
 				driver.manage().window().maximize();

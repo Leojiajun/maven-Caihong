@@ -9,24 +9,24 @@ public class Wait {
 	private WebDriver driver;
 	private int timeout=10;
 	
-	//¹¹Ôìº¯Êı£¨newºóÃæÊ¹ÓÃ£©
+	//æ„é€ å‡½æ•°ï¼ˆnewåé¢ä½¿ç”¨ï¼‰
 	public Wait(WebDriver driver){
 		this.driver=driver;
 	}
 	
-	//µÈ´ıÔªËØ³öÏÖ
+	//ç­‰å¾…å…ƒç´ å‡ºç°
 	public void waitForElementPresent(String locator){
 		(new WebDriverWait(driver,timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 		
 	}
 
-	//µÈ´ıÔªËØÄÜ²Ù×÷
+	//ç­‰å¾…å…ƒç´ èƒ½æ“ä½œ
 	public void waitForElementIsEnable(String locator){
 		(new WebDriverWait(driver,timeout)).until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 		
 	}
 	
-	//ĞİÃßÒ»¶ÎÊ±¼ä
+	//ä¼‘çœ ä¸€æ®µæ—¶é—´
 	public void waitFor(long timeout){
 		try {
 			Thread.sleep(timeout);

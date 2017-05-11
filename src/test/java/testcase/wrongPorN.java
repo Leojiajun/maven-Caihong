@@ -26,7 +26,7 @@ public class wrongPorN {
 	@BeforeClass
 	public void startfirefox(@Optional("data") String da,@Optional("locl") String loc){
 		data = new ParseProperties(System.getProperty("user.dir")+da);
-		locator = new ParseProperties(System.getProperty("user.dir")+loc);
+		//locator = new ParseProperties(System.getProperty("user.dir")+loc);
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);

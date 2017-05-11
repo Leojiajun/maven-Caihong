@@ -34,7 +34,7 @@ public class loginCaihongs {
 			wait.waitFor(2000);
 			loginpage.setUsername(data.getTestData("username", "1"));//输入用户名
 			loginpage.setPassword(data.getTestData("password", "1"));//输入密码
-			loginpage.prssLogbtn();//点击登录
+			loginpage.pressLogbtn();//点击登录
 			
 		}
 	}

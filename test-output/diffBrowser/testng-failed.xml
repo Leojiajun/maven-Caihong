@@ -12,6 +12,7 @@
     <classes>
       <class name="testcase.diffBrowser">
         <methods>
+          <include name="release"/>
           <include name="inital"/>
           <include name="module1"/>
           <include name="module2"/>
