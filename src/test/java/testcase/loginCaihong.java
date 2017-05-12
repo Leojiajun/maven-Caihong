@@ -32,7 +32,7 @@ public class loginCaihong {
 	@BeforeClass
 	//启动firefox浏览器
 	public void openFirefox(){
-		Browsers browser = new Browsers(BrowserType.chrome);
+		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait =  new Wait(driver);
 

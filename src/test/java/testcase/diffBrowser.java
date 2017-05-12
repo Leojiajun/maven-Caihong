@@ -17,12 +17,12 @@ public class diffBrowser {
 	private Browsers browser = null;
 	private Wait wait = null;
 	
-	@Parameters({"platform"})
+	@Parameters({"platform"})//将xml文件中的platform的值传入下面的platfromtest
 	@BeforeMethod(groups="browsers")
-	public void inital(String platform){
-		if(platform.equals("FF"))
+	public void inital(String platformtest){
+		if(platformtest.equals("FF"))
 			browser = new Browsers(BrowserType.firefox);
-		else if(platform.equals("chrome"))
+		else if(platformtest.equals("chrome"))
 			browser = new Browsers(BrowserType.chrome);
 		else browser = new Browsers(BrowserType.ie);
 		driver = browser.driver;

@@ -2,22 +2,52 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [diffBrowser]">
   <parameter name="platform" value="chrome"/>
-  <test name="Default test(failed)">
-    <groups>
-      <run>
-        <include name="browsers"/>
-        <include name="useFF"/>
-      </run>
-    </groups>
+  <test name="FirefoxTest(failed)">
+    <parameter name="platform" value="FF"/>
     <classes>
-      <class name="testcase.diffBrowser">
+      <class name="testcase.MultipleBrowserTest">
         <methods>
-          <include name="release"/>
+          <include name="testCaihong"/>
           <include name="inital"/>
-          <include name="module1"/>
-          <include name="module2"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="release"/>
+          <include name="release"/>
+          <include name="release"/>
         </methods>
-      </class> <!-- testcase.diffBrowser -->
+      </class> <!-- testcase.MultipleBrowserTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
+  </test> <!-- FirefoxTest(failed) -->
+  <test name="IeTest(failed)">
+    <parameter name="platform" value="ie"/>
+    <classes>
+      <class name="testcase.MultipleBrowserTest">
+        <methods>
+          <include name="testCaihong"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="release"/>
+          <include name="release"/>
+          <include name="release"/>
+        </methods>
+      </class> <!-- testcase.MultipleBrowserTest -->
+    </classes>
+  </test> <!-- IeTest(failed) -->
+  <test name="ChromeTest(failed)">
+    <parameter name="platform" value="chrome"/>
+    <classes>
+      <class name="testcase.MultipleBrowserTest">
+        <methods>
+          <include name="testCaihong"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="release"/>
+          <include name="release"/>
+          <include name="release"/>
+        </methods>
+      </class> <!-- testcase.MultipleBrowserTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [diffBrowser] -->

@@ -31,7 +31,7 @@ public class loginCaihongs {
 
 			TestDataCsv data = new TestDataCsv(System.getProperty("user.dir")+"\\src\\test\\java\\testData\\login.csv");
 
-			wait.waitFor(2000);
+			wait.waitFor(5000);
 			loginpage.setUsername(data.getTestData("username", "1"));//输入用户名
 			loginpage.setPassword(data.getTestData("password", "1"));//输入密码
 			loginpage.pressLogbtn();//点击登录
