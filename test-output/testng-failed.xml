@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [diffBrowser]">
+  <parameter name="platform" value="chrome"/>
+  <test name="ChromeTest(failed)">
+    <parameter name="platform" value="chrome"/>
     <classes>
-      <class name="testcase.loginCaihongs">
+      <class name="testcase.MultipleBrowserTest">
         <methods>
-          <include name="openFirefox"/>
-          <include name="Login"/>
+          <include name="testCaihong"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="inital"/>
+          <include name="release"/>
+          <include name="release"/>
         </methods>
-      </class> <!-- testcase.loginCaihongs -->
+      </class> <!-- testcase.MultipleBrowserTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [diffBrowser] -->

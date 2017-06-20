@@ -42,7 +42,7 @@ public class Browsers {
 				driver.manage().window().maximize();
 				break;
 			case chrome:
-				System.setProperty("webdriver.chrome.driver","D:\\BrowsersDrivers\\chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",projectpath+"/Tools/chromedriver.exe");
 				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 				capabilities.setCapability("chrome.switches", Arrays.asList("--incognito"));
 				ChromeOptions options = new ChromeOptions();

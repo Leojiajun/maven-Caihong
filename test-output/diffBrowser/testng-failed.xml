@@ -2,38 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [diffBrowser]">
   <parameter name="platform" value="chrome"/>
-  <test name="FirefoxTest(failed)">
-    <parameter name="platform" value="FF"/>
-    <classes>
-      <class name="testcase.MultipleBrowserTest">
-        <methods>
-          <include name="testCaihong"/>
-          <include name="inital"/>
-          <include name="inital"/>
-          <include name="inital"/>
-          <include name="release"/>
-          <include name="release"/>
-          <include name="release"/>
-        </methods>
-      </class> <!-- testcase.MultipleBrowserTest -->
-    </classes>
-  </test> <!-- FirefoxTest(failed) -->
-  <test name="IeTest(failed)">
-    <parameter name="platform" value="ie"/>
-    <classes>
-      <class name="testcase.MultipleBrowserTest">
-        <methods>
-          <include name="testCaihong"/>
-          <include name="inital"/>
-          <include name="inital"/>
-          <include name="inital"/>
-          <include name="release"/>
-          <include name="release"/>
-          <include name="release"/>
-        </methods>
-      </class> <!-- testcase.MultipleBrowserTest -->
-    </classes>
-  </test> <!-- IeTest(failed) -->
   <test name="ChromeTest(failed)">
     <parameter name="platform" value="chrome"/>
     <classes>
@@ -43,7 +11,6 @@
           <include name="inital"/>
           <include name="inital"/>
           <include name="inital"/>
-          <include name="release"/>
           <include name="release"/>
           <include name="release"/>
         </methods>

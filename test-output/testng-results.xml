@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="diffBrowser" duration-ms="21323" started-at="2017-05-12T03:20:56Z" finished-at="2017-05-12T03:21:17Z">
+  <suite name="diffBrowser" duration-ms="30691" started-at="2017-06-20T03:16:47Z" finished-at="2017-06-20T03:17:18Z">
     <groups>
     </groups>
-    <test name="FirefoxTest" duration-ms="8804" started-at="2017-05-12T03:20:56Z" finished-at="2017-05-12T03:21:04Z">
+    <test name="FirefoxTest" duration-ms="12186" started-at="2017-06-20T03:16:47Z" finished-at="2017-06-20T03:16:59Z">
       <class name="testcase.MultipleBrowserTest">
-        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="inital" is-config="true" duration-ms="5309" started-at="2017-05-12T11:20:56Z" finished-at="2017-05-12T11:21:01Z">
+        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="inital" is-config="true" duration-ms="6765" started-at="2017-06-20T11:16:47Z" finished-at="2017-06-20T11:16:54Z">
           <params>
             <param index="0">
               <value>
@@ -18,19 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inital -->
-        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="testCaihong" duration-ms="2675" started-at="2017-05-12T11:21:01Z" finished-at="2017-05-12T11:21:04Z">
+        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="testCaihong" duration-ms="4472" started-at="2017-06-20T11:16:54Z" finished-at="2017-06-20T11:16:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCaihong -->
-        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="release" is-config="true" duration-ms="810" started-at="2017-05-12T11:21:04Z" finished-at="2017-05-12T11:21:04Z">
+        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@2b98378d]" name="release" is-config="true" duration-ms="939" started-at="2017-06-20T11:16:59Z" finished-at="2017-06-20T11:16:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- release -->
       </class> <!-- testcase.MultipleBrowserTest -->
     </test> <!-- FirefoxTest -->
-    <test name="IeTest" duration-ms="5829" started-at="2017-05-12T03:21:04Z" finished-at="2017-05-12T03:21:10Z">
+    <test name="IeTest" duration-ms="9741" started-at="2017-06-20T03:17:00Z" finished-at="2017-06-20T03:17:09Z">
       <class name="testcase.MultipleBrowserTest">
-        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="inital" is-config="true" duration-ms="2738" started-at="2017-05-12T11:21:04Z" finished-at="2017-05-12T11:21:07Z">
+        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="inital" is-config="true" duration-ms="2612" started-at="2017-06-20T11:17:00Z" finished-at="2017-06-20T11:17:02Z">
           <params>
             <param index="0">
               <value>
@@ -41,19 +41,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inital -->
-        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="testCaihong" duration-ms="2407" started-at="2017-05-12T11:21:07Z" finished-at="2017-05-12T11:21:10Z">
+        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="testCaihong" duration-ms="6445" started-at="2017-06-20T11:17:02Z" finished-at="2017-06-20T11:17:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCaihong -->
-        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="release" is-config="true" duration-ms="681" started-at="2017-05-12T11:21:10Z" finished-at="2017-05-12T11:21:10Z">
+        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@3bfdc050]" name="release" is-config="true" duration-ms="681" started-at="2017-06-20T11:17:09Z" finished-at="2017-06-20T11:17:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- release -->
       </class> <!-- testcase.MultipleBrowserTest -->
     </test> <!-- IeTest -->
-    <test name="ChromeTest" duration-ms="6670" started-at="2017-05-12T03:21:10Z" finished-at="2017-05-12T03:21:17Z">
+    <test name="ChromeTest" duration-ms="8724" started-at="2017-06-20T03:17:09Z" finished-at="2017-06-20T03:17:18Z">
       <class name="testcase.MultipleBrowserTest">
-        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="inital" is-config="true" duration-ms="3119" started-at="2017-05-12T11:21:10Z" finished-at="2017-05-12T11:21:13Z">
+        <test-method status="PASS" signature="inital(java.lang.String)[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="inital" is-config="true" duration-ms="3638" started-at="2017-06-20T11:17:09Z" finished-at="2017-06-20T11:17:13Z">
           <params>
             <param index="0">
               <value>
@@ -64,11 +64,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inital -->
-        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="testCaihong" duration-ms="2771" started-at="2017-05-12T11:21:13Z" finished-at="2017-05-12T11:21:16Z">
+        <test-method status="PASS" signature="testCaihong()[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="testCaihong" duration-ms="4340" started-at="2017-06-20T11:17:13Z" finished-at="2017-06-20T11:17:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCaihong -->
-        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="release" is-config="true" duration-ms="778" started-at="2017-05-12T11:21:16Z" finished-at="2017-05-12T11:21:17Z">
+        <test-method status="PASS" signature="release()[pri:0, instance:testcase.MultipleBrowserTest@685cb137]" name="release" is-config="true" duration-ms="743" started-at="2017-06-20T11:17:17Z" finished-at="2017-06-20T11:17:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- release -->

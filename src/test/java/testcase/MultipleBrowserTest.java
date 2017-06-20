@@ -36,13 +36,15 @@ public class MultipleBrowserTest {
 	
 	@Test
 	public void testCaihong(){
-//		driver.get("http://www.baidu.com");
-//		driver.findElement(By.xpath("//input[@id='kw']")).sendKeys("自动化测试");
-//		driver.findElement(By.xpath("//input[@id='su']")).click();
-//		wait.waitFor(3000);
-		driver.get("http://192.168.8.7:8080/rainbow/pages/login.html");
-		wait.waitFor(2000);
-		Assert.assertEquals((driver.findElement(By.xpath("//input[@id='un']")).isDisplayed()), true);
+		driver.get("http://www.baidu.com");
+		driver.findElement(By.xpath("//input[@id='kw']")).sendKeys("自动化测试");
+		driver.findElement(By.xpath("//input[@id='su']")).click();
+		wait.waitFor(3000);
+//		driver.get("http://192.168.8.7:8080/rainbow/pages/login.html");
+//		wait.waitFor(2000);
+//		//Assert.assertEquals((driver.findElement(By.xpath("//input[@id='un']")).isDisplayed()), true);
+//		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='un']")).isDisplayed());
+		
 	}
 	
 	@AfterClass
