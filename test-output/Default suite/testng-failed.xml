@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcase.loginCaihongs">
+      <class name="WeAPI.API">
         <methods>
-          <include name="openFirefox"/>
-          <include name="Login"/>
+          <include name="getCurrentOageUrl"/>
+          <include name="openChrome"/>
         </methods>
-      </class> <!-- testcase.loginCaihongs -->
+      </class> <!-- WeAPI.API -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
