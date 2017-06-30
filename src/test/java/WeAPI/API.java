@@ -46,7 +46,7 @@ public class API {
 		Assert.assertEquals("https://www.sogou.com/", CurrentPageUrl);
 	}
 	
-	@Test/**双击按钮**/
+	@Test/**双击按钮***/
 	public void doubleClick(){
 		driver.get("file:///E:/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/html%E6%96%87%E4%BB%B6/doubleClick.html");
 		WebElement inputBox = driver.findElement(By.xpath("//input[@id='inputBox']"));
