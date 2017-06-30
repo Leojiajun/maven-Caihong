@@ -56,5 +56,8 @@ public class API {
 	}
 	
 	@Test
-	public void 
+	public void baidu(){
+		driver.get(url2);
+		
+	}
 }
