@@ -32,8 +32,7 @@ public class wrongNorP {
 	@DataProvider(name="testData")
 	public  Object[][] words() throws IOException{
 		driverByExcel dBE = new driverByExcel();
-		return dBE.getTestData("D:\\testdata","uandp.xls","Sheet1");
-		
+		return dBE.getTestData("D:\\testdata","uandp.xls","Sheet1");	
 	}
 	
 	//使用数据源

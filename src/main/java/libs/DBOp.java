@@ -20,6 +20,7 @@ public class DBOp {
 			Class.forName("org.sqlite.JDBC");
 			Connection conn;
 			try {
+				//自己在Tools下新建一个数据库mylocator.sqlite，用火狐中的sqlite去链接它
 				conn = DriverManager.getConnection("jdbc:sqlite:"+System.getProperty("user.dir")+"\\Tools\\mylocator.sqlite");
 				stat = conn.createStatement();
 			} catch (SQLException e) {
