@@ -45,7 +45,7 @@ public class newFactory {
 		Assert.assertEquals(logintop.testEle().isDisplayed(), true);
 	}
 	
-	@Test
+	@Test(dependsOnMethods={"logIn"})//新建一个工厂
 	public void newFactory(){
 		factoryManage fmanage = new factoryManage(driver);
 		fmanage.pressbasedata();
@@ -66,7 +66,7 @@ public class newFactory {
 		Assert.assertTrue(driver.getPageSource().contains("test1"));		
 	}
 	
-	@Test(dependsOnMethods={"logIn"})
+	@Test(dependsOnMethods={"newFactory"})
 	public void DelFactory(){
 		factoryManage fmanage = new factoryManage(driver);
 		fmanage.pressbasedata();

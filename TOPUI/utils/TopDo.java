@@ -1,4 +1,4 @@
-package Libs;
+package utils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
@@ -22,6 +22,16 @@ public class TopDo {
 	public WebElement what(String locatorname){
 		try {
 			return driver.findElement(By.xpath(new String(locator.getValue(locatorname).getBytes(),"utf-8")));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return null;
+	}
+	
+	public WebElement csswhat(String locatorname){
+		try {
+			return driver.findElement(By.ByCssSelector.cssSelector(new String(locator.getValue(locatorname).getBytes(),"utf-8")));
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

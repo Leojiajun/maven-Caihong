@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\user\AppData\Local\Temp\testng-eclipse--241664967\testng-customsuite.xml</span>
+                    <span>C:\Users\user\AppData\Local\Temp\testng-eclipse--846963887\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,17 +101,22 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.newFactory" hash-for-method="DelFactory">DelFactory</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.productManage" hash-for-method="delProduct">delProduct</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.newFactory" hash-for-method="logIn">logIn</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.productManage" hash-for-method="leadinProduct">leadinProduct</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.newFactory" hash-for-method="newFactory">newFactory</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.productManage" hash-for-method="logIn">logIn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="testcase.productManage" hash-for-method="newProduct">newProduct</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -129,14 +134,21 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">testcase.newFactory</span>
+              <span class="class-name">testcase.productManage</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="DelFactory">
-                  </a> <!-- DelFactory -->
-                  <span class="method-name">DelFactory</span>
+                  <a name="delProduct">
+                  </a> <!-- delProduct -->
+                  <span class="method-name">delProduct</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="leadinProduct">
+                  </a> <!-- leadinProduct -->
+                  <span class="method-name">leadinProduct</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -148,9 +160,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="newFactory">
-                  </a> <!-- newFactory -->
-                  <span class="method-name">newFactory</span>
+                  <a name="newProduct">
+                  </a> <!-- newProduct -->
+                  <span class="method-name">newProduct</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -158,7 +170,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\user\AppData\Local\Temp\testng-eclipse--241664967\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\user\AppData\Local\Temp\testng-eclipse--846963887\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -167,7 +179,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testcase.newFactory&quot;/&gt;
+      &lt;class name=&quot;testcase.productManage&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -207,24 +219,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'newFactory')
-data.setCell(0, 2, 'testcase.newFactory')
-data.setCell(0, 3, 12889);
+data.setCell(0, 1, 'leadinProduct')
+data.setCell(0, 2, 'testcase.productManage')
+data.setCell(0, 3, 8555);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'DelFactory')
-data.setCell(1, 2, 'testcase.newFactory')
-data.setCell(1, 3, 6509);
+data.setCell(1, 1, 'delProduct')
+data.setCell(1, 2, 'testcase.productManage')
+data.setCell(1, 3, 8472);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'logIn')
-data.setCell(2, 2, 'testcase.newFactory')
-data.setCell(2, 3, 6409);
+data.setCell(2, 1, 'newProduct')
+data.setCell(2, 2, 'testcase.productManage')
+data.setCell(2, 3, 7978);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'logIn')
+data.setCell(3, 2, 'testcase.productManage')
+data.setCell(3, 3, 4927);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 29 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -250,22 +266,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testcase.newFactory</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testcase.productManage</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">openFireFox</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">logIn</span>
-                <span class="method-start">7444 ms</span>
+                <span class="method-start">5730 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">newFactory</span>
-                <span class="method-start">13855 ms</span>
+                <span class="method-name">newProduct</span>
+                <span class="method-start">10660 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">DelFactory</span>
-                <span class="method-start">26747 ms</span>
+                <span class="method-name">delProduct</span>
+                <span class="method-start">18640 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">leadinProduct</span>
+                <span class="method-start">27115 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
