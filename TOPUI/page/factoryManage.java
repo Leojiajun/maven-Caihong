@@ -8,14 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 public class factoryManage {
 	private WebDriver driver;
 	
-	@FindBy(xpath="html/body/div[1]/div/div[1]/div[1]/ul/li[7]/div/div[1]/span")
+	@FindBy(xpath="html/body/div[1]/div/div[2]/div[1]/ul/li[7]/div/div[1]")
 	private WebElement baseData;
 	
-	@FindBy(xpath="html/body/div[1]/div/div[1]/div[1]/ul/li[7]/div/div[2]/ul/li[2]/div")
+	@FindBy(xpath="//div[2]/div[1]/ul/li[7]/div/div[2]/ul/li[2]/div")
 	private WebElement factory;
 	
 	
-	@FindBy(xpath="html/body/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/button")
+	@FindBy(xpath="//div/div[2]/div[2]/div[1]/div/div/div[2]/div/button")
 	private WebElement add;
 	
 	@FindBy(xpath="html/body/div[1]/div/div[1]/div[2]/div[2]/div/div/div[1]/div/div/i")
@@ -24,7 +24,7 @@ public class factoryManage {
 	@FindBy(xpath="html/body/div[1]/div/div[1]/div[2]/div[2]/div/div/div[1]/div/div/input")
 	private WebElement searchinput;
 	
-	@FindBy(xpath="html/body/div[1]/div/div[1]/div[2]/div[2]/div/table/tbody/tr[1]/td[5]/a[2]")
+	@FindBy(xpath="//div/div[2]/div[2]/div[1]/div/table/tbody/tr[1]/td[5]/a[2]")
 	private WebElement delBtn;
 	
 	public factoryManage(WebDriver driver){

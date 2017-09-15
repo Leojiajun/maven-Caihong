@@ -20,7 +20,7 @@ public class loginTopPage {
 	@FindBy(xpath="//button[@type='button']")
 	private WebElement loginbtn;
 	
-	@FindBy(xpath="html/body/div[1]/div/div[1]/div[2]/div[1]/div/div[1]/div/div")
+	@FindBy(xpath="html/body/div[1]/div/div[1]/div/div[2]/div/div/div[1]/div/div")
 	private WebElement forTestLog;
 	
 	public loginTopPage(WebDriver driver){

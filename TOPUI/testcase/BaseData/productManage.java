@@ -1,4 +1,4 @@
-package testcase;
+package testcase.BaseData;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -31,7 +31,7 @@ public class productManage {
 		wait = new Wait(driver);
 	}
 	
-	@Test//登录
+	@Test(priority=1)//登录
 	public void logIn(){
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
@@ -39,11 +39,12 @@ public class productManage {
 		logintop.setPassword("123qwe");
 		logintop.setCaptcha("aaaa");
 		logintop.pressLoginbtn();
-		wait.waitFor(3000);
-		Assert.assertEquals(logintop.testEle().isDisplayed(), true);
+		wait.waitFor(1000);
+		Assert.assertTrue(driver.getPageSource().contains("登录成功"));
+		//Assert.assertEquals(logintop.testEle().isDisplayed(), true);
 	}
 	
-	@Test(dependsOnMethods={"logIn"})//新建一个产品
+	@Test(priority=2)//新建一个产品
 	public void newProduct(){
 		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
@@ -67,18 +68,18 @@ public class productManage {
 		Assert.assertTrue(driver.getPageSource().contains(Pnumber));	
 	}
 	
-	@Test(dependsOnMethods={"newProduct"})
+	@Test(priority=3)
 	public void delProduct(){
 		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		wait.waitFor(2000);
 		du.what("productmanage").click();
 		wait.waitFor(2000);
-		String strNum1 = du.what("total").getText().replaceAll("\\s", "");
+		String strNum1 = du.what("producttotal").getText().replaceAll("\\s", "");
 		int pNum1 = Integer.valueOf(strNum1.substring(1,3));//获取产品总数
 		du.what("Pdelete").click();
 		wait.waitFor(2000);
-		du.what("makesureBtn").click();
+		du.what("deleteproductmakesureBtn").click();
 		wait.waitFor(2000);
 		String strNum2 = du.what("total").getText().replaceAll("\\s", "");
 		int pNum2 = Integer.valueOf(strNum2.substring(1,3));//获取产品总数
@@ -87,8 +88,8 @@ public class productManage {
 		Assert.assertEquals((pNum1-pNum2)==1, true);
 	}
 	
-	@Test(dependsOnMethods={"delProduct"})
-	public void leadinProduct(){
+	@Test(priority=4)
+	public void leadinProduct() throws IOException{
 		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		wait.waitFor(2000);
@@ -100,14 +101,8 @@ public class productManage {
 		//driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();//使用css定位
 		du.csswhat("uploadchoicecss").click();
 		wait.waitFor(2000);
-		
 		//使用autoIt编写的脚本上传文件
-		try {
-			Runtime.getRuntime().exec("D:/test2.exe");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Runtime.getRuntime().exec("D:/test2.exe");
 		wait.waitFor(2000);
 		driver.findElement(By.ByCssSelector.cssSelector("div.cont-modal-footer > button.ivu-btn-primary")).click();//CSS定位。点击上传
 		wait.waitFor(10000);

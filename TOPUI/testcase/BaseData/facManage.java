@@ -1,4 +1,4 @@
-package testcase;
+package testcase.BaseData;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -20,7 +20,7 @@ import page.addFactory;
 import page.factoryManage;
 import page.loginTopPage;
 
-public class newFactory {
+public class facManage {
 	private WebDriver driver;
 	private Do du;
 	private Wait wait;
@@ -33,7 +33,7 @@ public class newFactory {
 		wait = new Wait(driver);
 	}
 	
-	@Test//登录
+	@Test(priority=1)//登录
 	public void logIn(){
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
@@ -45,7 +45,7 @@ public class newFactory {
 		Assert.assertEquals(logintop.testEle().isDisplayed(), true);
 	}
 	
-	@Test(dependsOnMethods={"logIn"})//新建一个工厂
+	@Test(priority=2)//新建一个工厂
 	public void newFactory(){
 		factoryManage fmanage = new factoryManage(driver);
 		fmanage.pressbasedata();
@@ -66,22 +66,22 @@ public class newFactory {
 		Assert.assertTrue(driver.getPageSource().contains("test1"));		
 	}
 	
-	@Test(dependsOnMethods={"newFactory"})
+	@Test(priority=3)
 	public void DelFactory(){
 		factoryManage fmanage = new factoryManage(driver);
 		fmanage.pressbasedata();
 		wait.waitFor(2000);
 		fmanage.pressfacmanage();
 		wait.waitFor(2000);
-		String strNum = (driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div[2]/div[2]/div/ul/span")).getText()).replaceAll("\\s", "");/***截取文字，去除所有空格*/
+		String strNum = (driver.findElement(By.xpath("//div/div[2]/div[2]/div[1]/div/ul/span")).getText()).replaceAll("\\s", "");/***截取文字，去除所有空格*/
 //		System.out.println(strNum);
 //		int aa = strNum.indexOf("3");
 //		System.out.println(aa);
 		int fNum = Integer.valueOf(strNum.substring(1,2));/**截取工厂总数**/	
 		fmanage.delFacy();
-		driver.findElement(By.xpath("html/body/div[4]/div[2]/div/div/div/div/div[3]/button[2]")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div/div/div[3]/button[2]")).click();
 		wait.waitFor(2000);
-		String strNum2 = (driver.findElement(By.xpath("html/body/div[1]/div/div[1]/div[2]/div[2]/div/ul/span")).getText()).replaceAll("\\s", "");/***截取文字，去除所有空格*/
+		String strNum2 = (driver.findElement(By.xpath("//div/div[2]/div[2]/div[1]/div/ul/span")).getText()).replaceAll("\\s", "");/***截取文字，去除所有空格*/
 		int fNum2 = Integer.valueOf(strNum2.substring(1,2));/**再次截取工厂总数**/
 		Assert.assertEquals((fNum-fNum2)==1, true);
 		}

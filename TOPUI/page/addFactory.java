@@ -14,13 +14,13 @@ public class addFactory {
 	@FindBy(xpath="//input[@placeholder='请输入工厂地址']")
 	private WebElement faddress;
 	
-	@FindBy(xpath="html/body/div[3]/div[2]/div/div/div[1]/div/form/div[3]/div/div/div[1]/input")
+	@FindBy(xpath="//div/div[1]/div/form/div/div[3]/div/div/div[1]/input")
 	private WebElement choice;
 	
-	@FindBy(xpath="html/body/div[3]/div[2]/div/div/div[1]/div/form/div[3]/div/div/div[2]/ul[2]/li[3]")
+	@FindBy(xpath="//div/div[1]/div/form/div/div[3]/div/div/div[2]/ul[2]/li[3]")
 	private WebElement company;
 	
-	@FindBy(xpath="html/body/div[3]/div[2]/div/div/div[2]/div/button")
+	@FindBy(xpath="//div[4]/div[2]/div/div/div[2]/div/button")
 	private WebElement OK;
 	
 	public addFactory(WebDriver driver){
