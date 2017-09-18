@@ -66,7 +66,7 @@ public class facManage {
 		Assert.assertTrue(driver.getPageSource().contains("test1"));		
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3)//删除一个工厂
 	public void DelFactory(){
 		factoryManage fmanage = new factoryManage(driver);
 		fmanage.pressbasedata();

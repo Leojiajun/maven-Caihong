@@ -59,8 +59,8 @@ public class productManage {
 		Calendar c1 = Calendar.getInstance();
 		String Pnumber = sdf.format(c1.getTime());
 		
-		du.what("coding").sendKeys("PD"+Pnumber);
-		du.what("name").sendKeys("PN"+Pnumber);
+		du.what("productcoding").sendKeys("PD"+Pnumber);
+		du.what("productname").sendKeys("PN"+Pnumber);
 		du.what("classification").click();
 		du.what("wine").click();
 		du.what("preserve").click();
@@ -68,32 +68,34 @@ public class productManage {
 		Assert.assertTrue(driver.getPageSource().contains(Pnumber));	
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3)//删除一个产品
 	public void delProduct(){
 		TopDo du = new TopDo(driver);
-		du.what("basedata").click();
-		wait.waitFor(2000);
-		du.what("productmanage").click();
-		wait.waitFor(2000);
+//		du.what("basedata").click();
+//		wait.waitFor(2000);
+//		du.what("productmanage").click();
+		driver.navigate().refresh();
+		du.waitFor(2000);
 		String strNum1 = du.what("producttotal").getText().replaceAll("\\s", "");
 		int pNum1 = Integer.valueOf(strNum1.substring(1,3));//获取产品总数
 		du.what("Pdelete").click();
 		wait.waitFor(2000);
-		du.what("deleteproductmakesureBtn").click();
+		du.csswhat("deleteproductmakesureBtn").click();
 		wait.waitFor(2000);
-		String strNum2 = du.what("total").getText().replaceAll("\\s", "");
+		String strNum2 = du.what("producttotal").getText().replaceAll("\\s", "");
 		int pNum2 = Integer.valueOf(strNum2.substring(1,3));//获取产品总数
 		System.out.println(pNum1);
 		System.out.println(pNum2);
-		Assert.assertEquals((pNum1-pNum2)==1, true);
+		Assert.assertEquals(pNum1-pNum2==1, true);
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4)//导入产品
 	public void leadinProduct() throws IOException{
 		TopDo du = new TopDo(driver);
-		du.what("basedata").click();
-		wait.waitFor(2000);
-		du.what("productmanage").click();
+//		du.what("basedata").click();
+//		wait.waitFor(2000);
+//		du.what("productmanage").click();
+		driver.navigate().refresh();
 		wait.waitFor(2000);
 		du.what("leadin").click();
 		wait.waitFor(2000);
@@ -102,9 +104,9 @@ public class productManage {
 		du.csswhat("uploadchoicecss").click();
 		wait.waitFor(2000);
 		//使用autoIt编写的脚本上传文件
-		Runtime.getRuntime().exec("D:/test2.exe");
-		wait.waitFor(2000);
+		Runtime.getRuntime().exec("D:/uploadrun/product.exe");
+		wait.waitFor(30000);
 		driver.findElement(By.ByCssSelector.cssSelector("div.cont-modal-footer > button.ivu-btn-primary")).click();//CSS定位。点击上传
-		wait.waitFor(10000);
+		du.waitFor(5000);
 	}
 }

@@ -5,6 +5,7 @@
     <classes>
       <class name="testcase.BaseData.salesAreaManage">
         <methods>
+          <include name="addSalesArea"/>
           <include name="leadinSalesarea"/>
           <include name="openFireFox"/>
         </methods>

@@ -66,18 +66,16 @@ public class salesAreaManage {
 		Assert.assertTrue(driver.getPageSource().contains("添加成功"));
 	}
 	
-	@Test(priority=2)//导入
+	@Test(priority=3)//导入
 	public void leadinSalesarea() throws IOException{
 		TopDo du = new TopDo(driver);
-		du.what("basedata").click();
-		du.waitFor(2000);
-		du.what("salesmanage").click();
+		driver.navigate().refresh();
 		du.waitFor(2000);
 		du.what("salesarealeadin").click();
-		driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();
-		du.waitFor(3000);
-		Runtime.getRuntime().exec("D:/testsalesarea.exe");
 		du.waitFor(2000);
+		driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();
+		Runtime.getRuntime().exec("D:/uploadrun/salesarea.exe");
+		du.waitFor(20000);
 		driver.findElement(By.xpath("//div/div/div[2]/div/button[2]")).click();
 		//Assert.assertTrue(driver.getPageSource().contains("上传成功"));
 	}

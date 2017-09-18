@@ -79,13 +79,15 @@ public class companyManage {
 		du.waitFor(2000);
 		du.what("awaken").click();
 		du.what("awakencompanysure").click();
+		du.waitFor(2000);
 	}
 	
 	@Test(priority=3)
 	public void delCompany(){
 		TopDo du = new TopDo(driver);
+		driver.navigate().refresh();
 		du.what("basedata").click();
-		du.waitForElementIsEnable("companymanage");
+		du.waitFor(1000);
 		du.what("companymanage").click();
 		du.waitFor(2000);
 		String strNum3=du.what("companytotal").getText().replaceAll("\\s", "");
