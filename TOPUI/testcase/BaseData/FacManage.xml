@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TOPUI">
+  <test  name="Default test" preserve-order="true">
+    <classes>
+      <class name="testcase.BaseData.FacManage">
+      <methods>
+      	<include name="logIn"/>
+      	<include name="newFactory"/>
+      	<include name="DelFactory"/>
+      	</methods>
+      	</class>
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

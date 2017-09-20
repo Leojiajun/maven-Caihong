@@ -5,16 +5,18 @@ import java.util.Calendar;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.TakeScreenshot;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
 
-public class companyManage {
+public class CompanyManage {
 	private WebDriver driver;
 	private TopDo du;
 	private Wait wait;
@@ -26,6 +28,10 @@ public class companyManage {
 		driver = browser.driver;
 		wait = new Wait(driver);
 		TopDo du = new TopDo(driver);
+	}
+	@AfterClass
+	public void release(){
+		driver.quit();
 	}
 	
 	@Test(priority=1)//登录
@@ -39,11 +45,16 @@ public class companyManage {
 		logintop.pressLoginbtn();
 		du.waitFor(1000);
 		Assert.assertTrue(driver.getPageSource().contains("登录成功"));
+		//TakeScreenshot ss = new TakeScreenshot(driver);
+		//ss.takeScreenShot("CompanyManage", "logIn");
+		//System.out.println("截图了");
+		
 	}
 	
 	@Test(priority=2)
 	public void newCompany(){
 		TopDo du = new TopDo(driver);
+		TakeScreenshot ss = new TakeScreenshot(driver);
 		du.what("basedata").click();
 		du.waitFor(2000);
 		du.what("companymanage").click();
@@ -63,26 +74,34 @@ public class companyManage {
 		du.what("contactcard").sendKeys("320681198942556232");
 		du.what("licence").sendKeys("123455432112345");
 		du.what("productnum").clear();
-		du.what("productnum").sendKeys("30");
+		du.what("productnum").sendKeys("1");
 		du.what("usernum").clear();
-		du.what("usernum").sendKeys("10");
+		du.what("usernum").sendKeys("1");
 		du.what("terminalnum").clear();
 		du.what("terminalnum").sendKeys("2");
-		du.what("QRcodenum").clear();
-		du.what("QRcodenum").sendKeys("2000000");
+//		du.what("QRcodenum").clear();
+//		du.what("QRcodenum").sendKeys("1");
 		du.what("ckeep").click();
 		du.waitFor(1000);
-		Assert.assertTrue(driver.getPageSource().contains("保存成功"));
+		try {
+			Assert.assertTrue(driver.getPageSource().contains("保存成功"));
+			System.out.println("新建成功");
+		} catch (AssertionError e) {
+			System.out.println("执行catch");
+			ss.takeScreenShot("CompanyManage", "newCompany");
+		}
 		du.waitFor(2000);
 		du.what("review").click();
+		du.waitFor(2000);
 		du.csswhat("doadd").click();
 		du.waitFor(2000);
 		du.what("awaken").click();
-		du.what("awakencompanysure").click();
+		du.waitFor(2000);
+		du.csswhat("awakencompanysure").click();
 		du.waitFor(2000);
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3)//删除一个企业
 	public void delCompany(){
 		TopDo du = new TopDo(driver);
 		driver.navigate().refresh();

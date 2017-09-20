@@ -16,33 +16,55 @@
   
  <build> 
      <plugins>
-       <plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>2.9</version>
-			<configuration>
-				<!-- <skip>true</skip> -->
-				<!-- 每次执行测试的时候新建一个jvm -->
-				<forkMode>once</forkMode> 
-				<!-- 明确指定一下JVM的file.encoding --> 
-	            <argLine>-Dfile.encoding=UTF-8</argLine> 	
-			</configuration>
-			<executions>
-				<execution>
-					<id>run-test</id>
-					<phase>test</phase>
-					<goals>
-						<goal>test</goal>
-					</goals>
-					<configuration>
-						<suiteXmlFiles> 
-							<suiteXmlFile>src/test/java/testcase/loginCaihong.xml</suiteXmlFile> 
-							<suiteXmlFile>src/test/java/testcase/wrongNorP.xml</suiteXmlFile> 
-						</suiteXmlFiles> 
-					</configuration>
-				</execution>
-			</executions>
-		</plugin> 
+      <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<skip>true</skip>
+					<!-- 每次执行测试的时候新建一个jvm -->
+					<forkMode>once</forkMode> 
+					<!-- 明确指定一下JVM的file.encoding --> 
+                    <argLine>-Dfile.encoding=UTF-8</argLine> 	
+				</configuration>
+				<executions>
+					<execution>
+						<id>run-integration-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<includes>
+								<include>**/integration/**/*.java</include>
+							</includes>
+							<!--<suiteXmlFiles> <suiteXmlFile>testng.xml</suiteXmlFile> </suiteXmlFiles> -->
+						</configuration>
+					</execution>
+					<execution>
+						<id>run-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+						<configuration>
+							<skip>false</skip>
+							<includes>
+								<include>**/unit/**/*.java</include>
+							</includes>
+							<suiteXmlFiles> 						
+							<suiteXmlFile>TOPUI/testcase/BaseData/companyManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/testcase/BaseData/facManage.xml</suiteXmlFile> 	
+							<suiteXmlFile>TOPUI/testcase/BaseData/productManage.xml</suiteXmlFile> 
+							<suiteXmlFile>TOPUI/testcase/BaseData/salesAreaManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/testcase/BaseData/DealerManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/testcase/BaseData/WordbookManage.xml</suiteXmlFile>							
+							</suiteXmlFiles>
+						</configuration>
+					</execution>
+				</executions>
+		</plugin>
      </plugins>
   </build>
 

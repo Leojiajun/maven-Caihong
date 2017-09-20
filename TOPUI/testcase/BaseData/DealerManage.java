@@ -4,22 +4,19 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import org.apache.tools.ant.taskdefs.WaitFor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
-import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
 
-public class salesAreaManage {
+public class DealerManage {
 	private WebDriver driver;
 	private TopDo du;
 	private Browsers browser;
@@ -28,7 +25,10 @@ public class salesAreaManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		TopDo du = new TopDo(driver);
-
+	}
+	@AfterClass
+	public void release(){
+		driver.quit();
 	}
 	
 	@Test(priority=1)//登录
@@ -44,40 +44,54 @@ public class salesAreaManage {
 		Assert.assertTrue(driver.getPageSource().contains("登录成功"));
 	}
 	
-	@Test(priority=2)//新建
-	public void addSalesArea(){
+	@Test(priority=2)//新建一个经销商
+	public void newLeader(){
 		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		du.waitFor(2000);
-		du.what("salesmanage").click();
+		du.what("leadermanage").click();
 		du.waitFor(2000);
-		du.what("addsales").click();
-		
+		du.what("addleader").click();
 		SimpleDateFormat sdf = new SimpleDateFormat();
 		String layout = "yyyyMMddHHmmss";
 		sdf.applyPattern(layout);
 		Calendar c1 = Calendar.getInstance();
-		String code = sdf.format(c1.getTime());
-		du.what("salescode").sendKeys(code);
-		du.what("salesareaname").sendKeys("江苏"+code);
-		du.what("jiangsu").click();
-		du.what("newsalesurebtn").click();
+		String leadertime = sdf.format(c1.getTime());
+		du.what("leadercode").sendKeys("LC"+leadertime);
+		du.what("leadername").sendKeys("LN"+leadertime);
+		du.what("bussinessNum").sendKeys("BN"+leadertime);
+		du.what("leadercontact").sendKeys("contact");
+		du.what("leaderphoneNum").sendKeys("13855556666");
+		du.waitFor(2000);
+		du.csswhat("choiceArea").click();
+		du.waitFor(2000);
+		du.what("beijing").click();
+		du.csswhat("addleadersurebtn").click();
 		du.waitFor(1000);
-		Assert.assertTrue(driver.getPageSource().contains("添加成功"));
+		Assert.assertTrue(driver.getPageSource().contains("添加成功"));	
 	}
 	
-	@Test(priority=3)//导入
-	public void leadinSalesarea() throws IOException{
+	@Test(priority=3)//删除一个经销商
+	public void delLeader(){
 		TopDo du = new TopDo(driver);
-		driver.navigate().refresh();
-		du.waitFor(2000);
-		du.what("salesarealeadin").click();
-		du.waitFor(2000);
-		driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();
-		Runtime.getRuntime().exec("D:/uploadrun/salesarea.exe");
-		du.waitFor(20000);
-		driver.findElement(By.xpath("//div/div/div[2]/div/button[2]")).click();
-		//Assert.assertTrue(driver.getPageSource().contains("上传成功"));
+		du.what("deleteleaser").click();
+		du.waitFor(1000);
+		du.csswhat("deleteleadersurebtn").click();
+		du.waitFor(1000);
+		Assert.assertTrue(driver.getPageSource().contains("成功"));	
 	}
-
+	
+	@Test(priority=4)//导入一批经销商
+	public void loadin() throws IOException{
+		TopDo du = new TopDo(driver);
+		du.what("leaderloadinbtn").click();
+		driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();
+		Runtime.getRuntime().exec("D:/uploadrun/franchiser.exe");
+		du.waitFor(20000);
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/div/button[2]")).click();
+		du.waitFor(5000);
+		Assert.assertTrue(driver.getPageSource().contains("成功"));
+		
+		
+	}
 }

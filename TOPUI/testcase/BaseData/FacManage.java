@@ -1,14 +1,9 @@
 package testcase.BaseData;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
-
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,7 +15,8 @@ import page.addFactory;
 import page.factoryManage;
 import page.loginTopPage;
 
-public class facManage {
+
+public class FacManage {
 	private WebDriver driver;
 	private Do du;
 	private Wait wait;
@@ -31,6 +27,10 @@ public class facManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
+	}
+	@AfterClass
+	public void release(){
+		driver.quit();
 	}
 	
 	@Test(priority=1)//登录
@@ -61,7 +61,7 @@ public class facManage {
 		addF.pressChoice();
 		addF.pressCompany();
 		wait.waitFor(2000);
-		addF.pressOKbtn();
+		driver.findElement(By.ByCssSelector.cssSelector("div.cont-modal-footer>button")).click();
 		wait.waitFor(2000);
 		Assert.assertTrue(driver.getPageSource().contains("test1"));		
 	}

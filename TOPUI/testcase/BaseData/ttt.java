@@ -20,7 +20,7 @@ public class ttt {
 	String factoryname = "test1";
 	@BeforeClass//启动火狐浏览器
 	public void openFireFox(){
-		Browsers browser = new Browsers(BrowserType.firefox);
+		Browsers browser = new Browsers(BrowserType.chrome);
 		driver = browser.driver;
 		wait = new Wait(driver);
 		TopDo du = new TopDo(driver);

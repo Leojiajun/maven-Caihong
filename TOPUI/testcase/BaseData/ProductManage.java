@@ -6,8 +6,10 @@ import java.util.Calendar;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,7 +20,8 @@ import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
 
-public class productManage {
+
+public class ProductManage {
 	private WebDriver driver;
 	private TopDo du;
 	private Wait wait;
@@ -29,6 +32,10 @@ public class productManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
+	}
+	@AfterClass
+	public void release(){
+		driver.quit();
 	}
 	
 	@Test(priority=1)//登录
@@ -51,6 +58,8 @@ public class productManage {
 		wait.waitFor(2000);
 		du.what("productmanage").click();
 		wait.waitFor(2000);
+		//((JavascriptExecutor) driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		//du.waitFor(3000);
 		du.what("addproduct").click();
         //获取当前时间作为产品代码	
 		SimpleDateFormat sdf = new SimpleDateFormat();
