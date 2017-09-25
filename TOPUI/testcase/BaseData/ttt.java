@@ -1,13 +1,17 @@
 package testcase.BaseData;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.ScreenShotOnFailure;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
@@ -27,7 +31,7 @@ public class ttt {
 	}
 	
 	@Test//登录
-	public void logIn(){
+	public void logIn() throws IOException{
 		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
@@ -35,8 +39,10 @@ public class ttt {
 		driver.findElement(By.xpath("//input[@placeholder='请输入密码']")).click();
 		driver.findElement(By.xpath("//input[@placeholder='请输入密码']")).sendKeys("111111");
 		Assert.assertTrue(driver.getPageSource().contains("用户名不能为空"));
+		ScreenShotOnFailure ssf = new ScreenShotOnFailure();
+		ssf.takeScreentShot();
 	}
-	@Test//登录
+	//@Test//登录
 	public void nopassword(){
 		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);

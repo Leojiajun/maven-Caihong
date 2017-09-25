@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TOPUI">
-  <test  name="salesareamanage" preserve-order="true">
+  <test  name="RoleManage" preserve-order="true">
     <classes>
-      <class name="testcase.BaseData.SalesAreaManage">
+      <class name="systemplatform.RoleManage">
       <methods>
       	<include name="logIn"/>
-      	<include name="addSalesArea"/>
-      	<include name="leadinSalesarea"/>
+      	<include name="newRole"/>
+      	<include name="delRole"/>
       	</methods>
       	</class>
     </classes>

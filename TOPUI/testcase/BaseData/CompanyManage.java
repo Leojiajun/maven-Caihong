@@ -51,7 +51,7 @@ public class CompanyManage {
 		
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2)//新建企业
 	public void newCompany(){
 		TopDo du = new TopDo(driver);
 		TakeScreenshot ss = new TakeScreenshot(driver);
@@ -85,9 +85,9 @@ public class CompanyManage {
 		du.waitFor(1000);
 		try {
 			Assert.assertTrue(driver.getPageSource().contains("保存成功"));
-			System.out.println("新建成功");
+			System.out.println("新建企业成功");
 		} catch (AssertionError e) {
-			System.out.println("执行catch");
+			System.out.println("断点失败，执行catch 截图");
 			ss.takeScreenShot("CompanyManage", "newCompany");
 		}
 		du.waitFor(2000);
@@ -108,7 +108,7 @@ public class CompanyManage {
 		du.what("basedata").click();
 		du.waitFor(1000);
 		du.what("companymanage").click();
-		du.waitFor(2000);
+		du.waitFor(3000);
 		String strNum3=du.what("companytotal").getText().replaceAll("\\s", "");
 		System.out.println(strNum3);
 		int companyNum1=Integer.valueOf(strNum3.substring(1,3));

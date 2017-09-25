@@ -59,7 +59,9 @@
 							<suiteXmlFile>TOPUI/testcase/BaseData/productManage.xml</suiteXmlFile> 
 							<suiteXmlFile>TOPUI/testcase/BaseData/salesAreaManage.xml</suiteXmlFile>
 							<suiteXmlFile>TOPUI/testcase/BaseData/DealerManage.xml</suiteXmlFile>
-							<suiteXmlFile>TOPUI/testcase/BaseData/WordbookManage.xml</suiteXmlFile>							
+							<suiteXmlFile>TOPUI/testcase/BaseData/WordbookManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/systemplatform/RoleManage.xml</suiteXmlFile>	
+							<suiteXmlFile>TOPUI/systemplatform/UserManage.xml</suiteXmlFile>						
 							</suiteXmlFiles>
 						</configuration>
 					</execution>

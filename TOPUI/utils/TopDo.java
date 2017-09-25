@@ -1,7 +1,11 @@
 package utils;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +15,14 @@ import libs.ParseProperties;
 import libs.Wait;
 
 public class TopDo {
-	private WebDriver driver;
+	private static WebDriver driver;
 	private ParseProperties locator = new ParseProperties(System.getProperty("user.dir")+"/Tools/TopLocators.properties");
 	private Wait waiter;
+    
+	
+	public static WebDriver getDriver() {  
+        return driver;  
+    } 
 	
 	public TopDo(WebDriver driver){
 		this.driver = driver;
@@ -50,5 +59,17 @@ public class TopDo {
 	public void waitFor(long timeout){
 		waiter.waitFor(timeout);
 	}
-
+	
+    //随机生成字符串
+    public static String getRandomString(int length) {//length表示生成字符串的长度
+      String base = "abcdefghijklmnopqrstuvwxyz0123456789";
+      Random random = new Random();
+      StringBuffer sb = new StringBuffer();
+      for (int i = 0; i < length; i++) {
+        int number = random.nextInt(base.length());
+        sb.append(base.charAt(number));
+      }
+      return sb.toString();
+    }
+    
 }
