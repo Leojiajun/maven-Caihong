@@ -2,6 +2,8 @@ package libs;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -21,9 +23,14 @@ public class ScreenShotOnFailure {
         if (!screenShotDir.exists()) {  
             screenShotDir.mkdirs();  
         }  
-  
-        SCREEN_SHOT_NAME = String.valueOf(new Date().getTime()) + ".jpg";  
-        FileUtils.copyFile(((TakesScreenshot) TopDo.getDriver()).getScreenshotAs(OutputType.FILE), 
+        SimpleDateFormat sdf = new SimpleDateFormat();
+		String layout = "yyyyMMddHHmmss";
+		sdf.applyPattern(layout);
+		Calendar c1 = Calendar.getInstance();
+		String dateStr = sdf.format(c1.getTime());
+        SCREEN_SHOT_NAME = dateStr + ".jpg";  
+      //SCREEN_SHOT_NAME = String.valueOf(new Date().getTime()) + ".jpg"; 
+        FileUtils.copyFile( ((TakesScreenshot) TopDo.getDriver()).getScreenshotAs(OutputType.FILE), 
                 new File(SCREEN_SHOT_PATH + "/" + SCREEN_SHOT_NAME));  
     }  
   

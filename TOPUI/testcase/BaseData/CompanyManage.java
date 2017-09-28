@@ -7,15 +7,17 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
 import libs.TakeScreenshot;
+import libs.TestngRetryListener;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
-
+@Listeners({ TestngRetryListener.class })//添加监听器，在出现报错的情况下自动截图
 public class CompanyManage {
 	private WebDriver driver;
 	private TopDo du;
@@ -27,7 +29,7 @@ public class CompanyManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
-		TopDo du = new TopDo(driver);
+	    du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -36,7 +38,6 @@ public class CompanyManage {
 	
 	@Test(priority=1)//登录
 	public void logIn(){
-		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
 		logintop.setUsername("hy@sina.com");
@@ -53,7 +54,6 @@ public class CompanyManage {
 	
 	@Test(priority=2)//新建企业
 	public void newCompany(){
-		TopDo du = new TopDo(driver);
 		TakeScreenshot ss = new TakeScreenshot(driver);
 		du.what("basedata").click();
 		du.waitFor(2000);
@@ -103,7 +103,6 @@ public class CompanyManage {
 	
 	@Test(priority=3)//删除一个企业
 	public void delCompany(){
-		TopDo du = new TopDo(driver);
 		driver.navigate().refresh();
 		du.what("basedata").click();
 		du.waitFor(1000);

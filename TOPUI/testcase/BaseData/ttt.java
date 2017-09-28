@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.DoFromSql;
 import libs.ScreenShotOnFailure;
 import libs.Wait;
 import page.loginTopPage;
@@ -29,8 +30,18 @@ public class ttt {
 		wait = new Wait(driver);
 		TopDo du = new TopDo(driver);
 	}
+	@Test
+	public void login(){
+		DoFromSql dufs = new DoFromSql(driver);
+		driver.get("https://top-stable.sao.so/#/login");
+		dufs.what("username").sendKeys("hy@sina.com");
+		dufs.csswhat("loginbutton").click();
+	}
 	
-	@Test//登录
+	
+	
+	
+	//@Test//登录
 	public void logIn() throws IOException{
 		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);

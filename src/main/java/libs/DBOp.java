@@ -32,27 +32,27 @@ public class DBOp {
 			e.printStackTrace();
 		}
 	}	
-	public String getLocatorXpath(String locatorname){
-		String xpath = null;
+	public String getLocatorElement(String locatorname){
+		String element = null;
 		try {
 			rsq = stat.executeQuery("select * from "+tablename+" where WebElementName = '"+locatorname+"';");
 			while(rsq.next()){
-				xpath = rsq.getString("Xpath");
+				element = rsq.getString("XpathOrCss");//获取“XpathOrCss”字段的值
 			}
 			rsq.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return xpath;
+		return element;
 		
 	}
 	
-	//select xpath from LoginPage where WebElementName='username'
+	//select * from LoginPage where WebElementName='username'
 	public static void main(String[] args){
 		DBOp test = new DBOp("LoginPage");
 		test.connect();
-		System.out.println(test.getLocatorXpath("username"));
+		System.out.println(test.getLocatorElement("username"));
 	}
 
 }

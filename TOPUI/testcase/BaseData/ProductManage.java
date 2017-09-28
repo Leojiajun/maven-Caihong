@@ -11,16 +11,17 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
-
+import libs.TestngRetryListener;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
 
-
+@Listeners({ TestngRetryListener.class })
 public class ProductManage {
 	private WebDriver driver;
 	private TopDo du;
@@ -32,6 +33,7 @@ public class ProductManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
+		du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -53,7 +55,6 @@ public class ProductManage {
 	
 	@Test(priority=2)//新建一个产品
 	public void newProduct(){
-		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		wait.waitFor(2000);
 		du.what("productmanage").click();
@@ -79,7 +80,6 @@ public class ProductManage {
 	
 	@Test(priority=3)//删除一个产品
 	public void delProduct(){
-		TopDo du = new TopDo(driver);
 //		du.what("basedata").click();
 //		wait.waitFor(2000);
 //		du.what("productmanage").click();
@@ -100,7 +100,6 @@ public class ProductManage {
 	
 	@Test(priority=4)//导入产品
 	public void leadinProduct() throws IOException{
-		TopDo du = new TopDo(driver);
 //		du.what("basedata").click();
 //		wait.waitFor(2000);
 //		du.what("productmanage").click();

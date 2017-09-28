@@ -5,17 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
 import libs.Do;
+import libs.TestngRetryListener;
 import libs.Wait;
 import page.addFactory;
 import page.factoryManage;
 import page.loginTopPage;
 
-
+@Listeners({ TestngRetryListener.class })
 public class FacManage {
 	private WebDriver driver;
 	private Do du;

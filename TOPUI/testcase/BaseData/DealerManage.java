@@ -9,13 +9,15 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.TestngRetryListener;
 import page.loginTopPage;
 import utils.TopDo;
-
+@Listeners({ TestngRetryListener.class })
 public class DealerManage {
 	private WebDriver driver;
 	private TopDo du;
@@ -24,7 +26,7 @@ public class DealerManage {
 	public void openFireFox(){
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
-		TopDo du = new TopDo(driver);
+		 du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -33,7 +35,6 @@ public class DealerManage {
 	
 	@Test(priority=1)//登录
 	public void logIn(){
-		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
 		logintop.setUsername("hy@sina.com");
@@ -46,7 +47,6 @@ public class DealerManage {
 	
 	@Test(priority=2)//新建一个经销商
 	public void newLeader(){
-		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		du.waitFor(2000);
 		du.what("leadermanage").click();
@@ -74,7 +74,6 @@ public class DealerManage {
 	
 	@Test(priority=3)//删除一个经销商
 	public void delLeader(){
-		TopDo du = new TopDo(driver);
 		du.what("deleteleaser").click();
 		du.waitFor(1000);
 		du.csswhat("deleteleadersurebtn").click();
@@ -84,7 +83,6 @@ public class DealerManage {
 	
 	@Test(priority=4)//导入一批经销商
 	public void loadin() throws IOException{
-		TopDo du = new TopDo(driver);
 		du.what("leaderloadinbtn").click();
 		driver.findElement(By.ByCssSelector.cssSelector("i.ivu-icon-ios-cloud-upload")).click();
 		Runtime.getRuntime().exec("D:/uploadrun/franchiser.exe");

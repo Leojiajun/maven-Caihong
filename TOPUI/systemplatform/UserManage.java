@@ -24,7 +24,7 @@ public class UserManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
-		TopDo du = new TopDo(driver);
+		 du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -33,7 +33,6 @@ public class UserManage {
 	
 	@Test(priority=1)//登录
 	public void logIn(){
-		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
 		logintop.setUsername("hy@sina.com");
@@ -46,7 +45,6 @@ public class UserManage {
 	
 	@Test(priority=2)
 	public void newUser(){
-		TopDo du = new TopDo(driver);
 		du.what("platform").click();
 		du.waitFor(2000);
 		du.what("usermanage").click();
@@ -76,7 +74,6 @@ public class UserManage {
 	
 	@Test(priority=3)
 	public void alterUser(){
-		TopDo du = new TopDo(driver);
 		//driver.navigate().refresh();
 		du.what("platform").click();
 		du.waitFor(2000);
@@ -94,7 +91,6 @@ public class UserManage {
 	
 	@Test(priority=4)
 	public void stopUser(){
-		TopDo du = new TopDo(driver);
 		//driver.navigate().refresh();
 		du.what("platform").click();
 		du.waitFor(2000);

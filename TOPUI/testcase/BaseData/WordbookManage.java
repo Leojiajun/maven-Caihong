@@ -7,14 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.TestngRetryListener;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
-
+@Listeners({ TestngRetryListener.class })
 public class WordbookManage {
 	private WebDriver driver;
 	private TopDo du;
@@ -26,6 +28,7 @@ public class WordbookManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
+		 du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -47,7 +50,6 @@ public class WordbookManage {
 	
 	@Test(priority=2)
 	public void newData(){
-		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		wait.waitFor(2000);
 		du.what("datamanage").click();
@@ -70,7 +72,6 @@ public class WordbookManage {
 	
 	@Test(priority=3)
 	public void delData(){
-		TopDo du = new TopDo(driver);
 		du.what("deldata").click();
 		du.waitFor(2000);
 		du.csswhat("deldatasurebtn").click();

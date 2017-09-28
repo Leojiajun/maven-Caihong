@@ -23,7 +23,7 @@ public class RoleManage {
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
-		TopDo du = new TopDo(driver);
+		 du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -32,7 +32,6 @@ public class RoleManage {
 	
 	@Test(priority=1)//登录
 	public void logIn(){
-		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
 		logintop.setUsername("hy@sina.com");
@@ -44,14 +43,13 @@ public class RoleManage {
 }
 	@Test(priority=2)//新建角色
 	public void newRole(){
-		TopDo du = new TopDo(driver);
 		du.what("platform").click();
 		du.waitFor(2000);
 		du.what("rolemanage").click();
 		du.waitFor(2000);
 		du.csswhat("addrole").click();
 		du.waitFor(2000);
-		du.what("rolename").sendKeys(du.getRandomString(5));
+		du.what("rolename").sendKeys(TopDo.getRandomString(5));
 		du.what("choiceactivity").click();
 		du.what("pulldown").click();
 		du.what("choiceCRM").click();
@@ -62,7 +60,6 @@ public class RoleManage {
 	
 	@Test(priority=3)//删除一个角色
 	public void delRole(){
-		TopDo du = new TopDo(driver);
 		du.what("platform").click();
 		du.waitFor(2000);
 		du.what("rolemanage").click();

@@ -12,14 +12,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import libs.BrowserType;
 import libs.Browsers;
+import libs.TestngRetryListener;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
-
+@Listeners({ TestngRetryListener.class })
 public class SalesAreaManage {
 	private WebDriver driver;
 	private TopDo du;
@@ -28,7 +30,7 @@ public class SalesAreaManage {
 	public void openFireFox(){
 		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
-		TopDo du = new TopDo(driver);
+		 du = new TopDo(driver);
 	}
 	@AfterClass
 	public void release(){
@@ -37,7 +39,6 @@ public class SalesAreaManage {
 	
 	@Test(priority=1)//登录
 	public void logIn(){
-		TopDo du = new TopDo(driver);
 		loginTopPage logintop = new loginTopPage(driver);
 		logintop.openUrl("https://top-stable.sao.so/#/login");
 		logintop.setUsername("hy@sina.com");
@@ -50,7 +51,6 @@ public class SalesAreaManage {
 	
 	@Test(priority=2)//新建
 	public void addSalesArea(){
-		TopDo du = new TopDo(driver);
 		du.what("basedata").click();
 		du.waitFor(2000);
 		du.what("salesmanage").click();
@@ -72,7 +72,6 @@ public class SalesAreaManage {
 	
 	@Test(priority=3)//导入
 	public void leadinSalesarea() throws IOException{
-		TopDo du = new TopDo(driver);
 		driver.navigate().refresh();
 		du.waitFor(2000);
 		du.what("salesarealeadin").click();
