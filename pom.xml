@@ -54,10 +54,10 @@
 								<include>**/unit/**/*.java</include>
 							</includes>
 							<suiteXmlFiles> 						
-							<suiteXmlFile>TOPUI/testcase/BaseData/companyManage.xml</suiteXmlFile>
-							<suiteXmlFile>TOPUI/testcase/BaseData/facManage.xml</suiteXmlFile> 	
-							<suiteXmlFile>TOPUI/testcase/BaseData/productManage.xml</suiteXmlFile> 
-							<suiteXmlFile>TOPUI/testcase/BaseData/salesAreaManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/testcase/BaseData/CompanyManage.xml</suiteXmlFile>
+							<suiteXmlFile>TOPUI/testcase/BaseData/FactoryManage.xml</suiteXmlFile> 	
+							<suiteXmlFile>TOPUI/testcase/BaseData/ProductManage.xml</suiteXmlFile> 
+							<suiteXmlFile>TOPUI/testcase/BaseData/SalesAreaManage.xml</suiteXmlFile>
 							<suiteXmlFile>TOPUI/testcase/BaseData/DealerManage.xml</suiteXmlFile>
 							<suiteXmlFile>TOPUI/testcase/BaseData/WordbookManage.xml</suiteXmlFile>
 							<suiteXmlFile>TOPUI/systemplatform/RoleManage.xml</suiteXmlFile>	

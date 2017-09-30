@@ -13,6 +13,7 @@ import libs.BrowserType;
 import libs.Browsers;
 import libs.DoFromSql;
 import libs.ScreenShotOnFailure;
+import libs.Tools;
 import libs.Wait;
 import page.loginTopPage;
 import utils.TopDo;
@@ -25,17 +26,27 @@ public class ttt {
 	String factoryname = "test1";
 	@BeforeClass//启动火狐浏览器
 	public void openFireFox(){
-		Browsers browser = new Browsers(BrowserType.chrome);
+		Browsers browser = new Browsers(BrowserType.firefox);
 		driver = browser.driver;
 		wait = new Wait(driver);
 		TopDo du = new TopDo(driver);
 	}
 	@Test
+	public void login2(){
+		Tools tool= new Tools(driver);
+		driver.get("https://top-stable.sao.so/#/login");
+		tool.input("username", "hy@sina.com");
+		tool.input("password", "123qwe");
+		tool.input("yanzheng", "qwww");
+		tool.button("loginbtn");
+	}
+	
+	//@Test
 	public void login(){
 		DoFromSql dufs = new DoFromSql(driver);
 		driver.get("https://top-stable.sao.so/#/login");
 		dufs.what("username").sendKeys("hy@sina.com");
-		dufs.csswhat("loginbutton").click();
+		dufs.csswhat("loginbtn").click();
 	}
 	
 	

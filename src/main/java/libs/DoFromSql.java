@@ -9,19 +9,22 @@ public class DoFromSql {
 	private Wait waiter;
 	private DBOp test = new DBOp("TOPDATA");
 	
+	
 	public DoFromSql(WebDriver driver){
 		this.driver = driver;
 		waiter = new Wait(driver);
+		test.connect();
+		System.out.println("连接数据库成功");
 	}
 	
 	
 	public WebElement what(String locatorname){		
-		test.connect();
+
 		return driver.findElement(By.xpath(test.getLocatorElement(locatorname)));	
 	}
 	
 	public WebElement csswhat(String locatorname){
-		test.connect();
+
 		return driver.findElement(By.ByCssSelector.cssSelector(test.getLocatorElement(locatorname)));	
 	}
 	

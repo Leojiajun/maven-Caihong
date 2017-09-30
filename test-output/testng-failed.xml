@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcase.BaseData.CompanyManage">
+      <class name="testcase.BaseData.FactoryManage">
         <methods>
+          <include name="addFactory"/>
+          <include name="delFactory"/>
           <include name="openFireFox"/>
-          <include name="logIn"/>
           <include name="release"/>
         </methods>
-      </class> <!-- testcase.BaseData.CompanyManage -->
+      </class> <!-- testcase.BaseData.FactoryManage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

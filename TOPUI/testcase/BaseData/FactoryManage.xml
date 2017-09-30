@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TOPUI">
-  <test  name="facmanage" preserve-order="true">
+  <test  name="factorymanage" preserve-order="true">
     <classes>
-      <class name="testcase.BaseData.FacManage">
+      <class name="testcase.BaseData.FactoryManage">
       <methods>
       	<include name="logIn"/>
-      	<include name="newFactory"/>
-      	<include name="DelFactory"/>
+      	<include name="addFactory"/>
+      	<include name="delFactory"/>
       	</methods>
       	</class>
     </classes>
